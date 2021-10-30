@@ -7,27 +7,26 @@ brew install openssl readline sqlite3 xz zlib
 #--------------------------------create ssh-key--------------------------------#
 mkdir -p $HOME/.ssh
 chmod 0700 $HOME/.ssh
-ssh-keygen -t rsa -N ""
+ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa -y
 #---------------------------------install Iterm--------------------------------#
-brew cask install iterm2
+brew install --cask iterm2
 #----------------------------------install Zsh---------------------------------#
 brew install zsh
 #-------------------------------install Oh My Zsh------------------------------#
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-mv -f ./.zshrc $HOME/
-
-
-
-
 #----------------------------------install Nvim--------------------------------#
 brew install neovim
-
 #----------------------------install Python with pyenv-------------------------#
-git clone https://github.com/pyenv/pyenv.git ~/.pyenv
-cd ~/.pyenv && src/configure && make -C src
-echo 'eval "$(pyenv init --path)"' >> ~/.zprofile
+brew install pyenv
+cp -f $HOME/Setup/.zshrc $HOME/
 source $HOME/.zshrc
 exec zsh
-pyenv install-latest
-#install pip?
-#pip install modules?
+pyenv install 3.10.0
+pyenv global 3.10.0
+#-----------------------------install vscode with brew-------------------------#
+brew install --cask visual-studio-code
+#------------------------------------------------------------------------------#
+#fuzzy finders -> telescope by tj
+#lsp nvim-lspconfig -> error checking
+#auto complete -> nvim-cmp
+#

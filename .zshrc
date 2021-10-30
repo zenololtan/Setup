@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-export ZSH="/Users/zenotan/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
 
 source $ZSH/oh-my-zsh.sh
@@ -35,10 +35,11 @@ unsetopt flow_control
 #Pyenv protection from homebrew linking
 alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 #pyenv stuff
+PATH=$(pyenv root)/shims:$PATH
 eval "$(pyenv init -)"
 
 #vscode code command
-export PATH="\$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+#export PATH="\$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 #automate commands
 alias mcpp="python $HOME/automate/auto_cpp_maker/auto_cpp.py"
