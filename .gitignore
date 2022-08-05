@@ -44,6 +44,8 @@
 
 #vscode
 *.vscode/*
+*.cache*
+*.DS_Store*
 
 # Kernel Module Compile Results
 *.mod*
